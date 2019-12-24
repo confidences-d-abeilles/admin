@@ -6,7 +6,7 @@ import {
 
 export default (props) => (
   <List {...props}>
-    <Datagrid rowClick="edit">
+    <Datagrid rowClick="show">
       <TextField source="firstname" />
       <TextField source="name" />
       <TextField source="line1" />

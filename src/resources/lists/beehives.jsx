@@ -7,12 +7,10 @@ export default (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="name" />
-      <ReferenceManyField target="beehive_id" reference="beehives_subscriptions" label="Parrains">
+      <ReferenceManyField target="beehive_id" reference="beehives_subscriptions" label="Parrainages">
         <Datagrid>
-          <ReferenceField source="subscription_id" reference="subscriptions" label="">
-            <ReferenceField source="user_id" reference="users">
-              <TextField source="email" />
-            </ReferenceField>
+          <ReferenceField source="subscription_id" reference="subscriptions">
+            <TextField source="id" />
           </ReferenceField>
         </Datagrid>
       </ReferenceManyField>
