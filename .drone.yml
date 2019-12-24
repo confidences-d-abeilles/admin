@@ -39,3 +39,8 @@ steps:
       - docker-compose -p bee-api up -d preview
     depends_on:
       - build preview
+
+volumes:
+  - name: docker
+    host:
+      path: /var/run/docker.sock
