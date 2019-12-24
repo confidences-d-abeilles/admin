@@ -6,19 +6,5 @@ steps:
   - name: lint
     image: node:10
     commands:
-      - yarn install --network-timeout 100000
-      - yarn lint
-
-
-
----
-kind: pipeline
-type: docker
-name: build
-
-steps:
-  - name: lint
-    image: node:10
-    commands:
-      - yarn install --network-timeout 100000
+      - yarn --network-timeout 100000
       - yarn lint
