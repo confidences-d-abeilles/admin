@@ -1,0 +1,15 @@
+version: '3'
+services:
+  preview:
+    build:
+      context: .
+      args:
+        - NODE_ENV=staging
+        - REACT_APP_API_SECRET=${REACT_APP_API_SECRET}
+    image: bee-api:staging
+    restart: always
+    labels:
+      - "traefik.frontend.rule=Host:bee-api.cchampou.me"
+      - "traefik.backend.port=3000"
+      - "traefik.enable=true"
+      - "traefik.docker.network=layko_layko_net"
