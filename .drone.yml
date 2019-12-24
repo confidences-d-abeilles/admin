@@ -1,18 +1,6 @@
 kind: pipeline
 type: docker
-name: checks
-
-steps:
-  - name: lint
-    image: node:10
-    commands:
-      - yarn --pure-lockfile
-      - yarn lint
-
----
-kind: pipeline
-type: docker
-name: build & deploy
+name: check & build & deploy
 
 steps:
   - name: build preview
