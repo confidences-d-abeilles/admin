@@ -10,6 +10,8 @@ module.exports = {
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
+    checkValidServiceWorker: true,
+    registerValidSW: true
   },
   parserOptions: {
     ecmaFeatures: {
@@ -22,5 +24,6 @@ module.exports = {
     'react',
   ],
   rules: {
+    "react/jsx-props-no-spreading": "off",
   },
 };
