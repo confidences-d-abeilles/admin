@@ -12,7 +12,7 @@ steps:
 ---
 kind: pipeline
 type: docker
-name: checks
+name: build & deploy
 
 steps:
   - name: build preview
