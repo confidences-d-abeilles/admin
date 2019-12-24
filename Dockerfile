@@ -15,6 +15,8 @@ RUN yarn --pure-lockfile
 
 COPY . .
 
-EXPOSE 3000
+RUN REACT_APP_API_SECRET=$REACT_APP_API_SECRET yarn build
 
-CMD REACT_APP_API_SECRET=$REACT_APP_API_SECRET HOST="0.0.0.0" PORT=3000 yarn start
+EXPOSE 5000
+
+CMD npx serve -s build -p 5000
