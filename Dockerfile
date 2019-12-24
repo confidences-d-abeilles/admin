@@ -9,8 +9,9 @@ ENV REACT_APP_API_KEY "$REACT_APP_API_KEY"
 
 COPY package.json package.json
 COPY yarn.lock yarn.lock
+COPY .yarnrc .yarnrc
 
-RUN yarn --network-timeout 100000
+RUN yarn
 
 COPY . .
 
