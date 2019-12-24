@@ -7,4 +7,5 @@ steps:
   - name: Lint
     image: node:10
     commands:
+      - yarn install
       - yarn lint
