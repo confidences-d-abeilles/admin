@@ -1,18 +1,20 @@
 import React from 'react';
 import {
-  Datagrid, TextField, DateField, List,
+  Datagrid, TextField, List, NumberField,
 } from 'react-admin';
 
 
 export default (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
+      <TextField source="firstname" />
+      <TextField source="name" />
       <TextField source="line1" />
       <TextField source="line2" />
+      <NumberField source="zipcode" />
       <TextField source="city" />
-      <DateField source="updated_at" />
-      <DateField source="created_at" />
-      <TextField source="id" />
+      <TextField source="country" />
+      <NumberField source="phone" />
     </Datagrid>
   </List>
 );

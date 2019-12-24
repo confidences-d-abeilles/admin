@@ -6,7 +6,7 @@ steps:
   - name: lint
     image: node:10
     commands:
-      - yarn
+      - yarn --pure-lockfile
       - yarn lint
 
 ---
