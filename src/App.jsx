@@ -6,6 +6,7 @@ import userList from './resources/users';
 import subscriptionList from './resources/subscriptions';
 import beehiveList from './resources/beehives';
 import newsList from './resources/news';
+import beehivesSubscriptionsList from './resources/beehives_subscriptions';
 
 const headers = { 'content-type': 'application/json', 'x-hasura-admin-secret': process.env.REACT_APP_API_SECRET };
 
@@ -16,6 +17,7 @@ const App = () => (
     <Resource name="beehives" list={beehiveList} />
     <Resource name="news" list={newsList} />
     <Resource name="products" list={ListGuesser} />
+    <Resource name="beehives_subscriptions" list={beehivesSubscriptionsList} />
     <Resource name="addresses" list={addressList} />
   </Admin>
 );
