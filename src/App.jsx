@@ -1,7 +1,7 @@
 import React from 'react';
 import hasuraDataProvider from 'ra-data-hasura';
 import {
-  Admin, Resource, ListGuesser,
+  Admin, Resource, ListGuesser, ShowGuesser,
 } from 'react-admin';
 
 // Lists
@@ -16,6 +16,7 @@ import beehivesSubscriptionsList from './resources/lists/beehives_subscriptions'
 // Shows
 
 import addressShow from './resources/shows/address';
+import newsShow from './resources/shows/news';
 
 const headers = { 'content-type': 'application/json', 'x-hasura-admin-secret': process.env.REACT_APP_API_SECRET };
 
@@ -23,8 +24,9 @@ const App = () => (
   <Admin dataProvider={hasuraDataProvider('https://beeapi.herokuapp.com/', headers)}>
     <Resource name="users" list={userList} />
     <Resource name="subscriptions" list={subscriptionList} />
+    <Resource name="files" list={ListGuesser} />
     <Resource name="beehives" list={beehiveList} />
-    <Resource name="news" list={newsList} />
+    <Resource name="news" list={newsList} show={newsShow} />
     <Resource name="products" list={ListGuesser} />
     <Resource name="beehives_subscriptions" list={beehivesSubscriptionsList} />
     <Resource name="addresses" list={addressList} show={addressShow} />
