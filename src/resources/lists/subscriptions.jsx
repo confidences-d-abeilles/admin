@@ -1,20 +1,15 @@
 import React from 'react';
 import {
-  List, Datagrid, ReferenceField, TextField, ReferenceManyField,
+  List, Datagrid, ReferenceField, TextField, DateField,
 } from 'react-admin';
 
 export default (props) => (
   <List {...props}>
-    <Datagrid rowClick="edit">
-      <TextField source="id" />
-      <ReferenceField source="user_id" reference="users"><TextField source="email" /></ReferenceField>
-      <ReferenceManyField target="subscription_id" reference="beehives_subscriptions">
-        <Datagrid>
-          <ReferenceField source="beehive_id" reference="beehives">
-            <TextField source="name" />
-          </ReferenceField>
-        </Datagrid>
-      </ReferenceManyField>
+    <Datagrid rowClick="show">
+      <ReferenceField source="user_id" reference="users" link="show"><TextField source="email" /></ReferenceField>
+      <ReferenceField source="product_id" reference="products" link="show"><TextField source="name" /></ReferenceField>
+      <DateField source="start_date" />
+      <DateField source="expiration_date" />
     </Datagrid>
   </List>
 );

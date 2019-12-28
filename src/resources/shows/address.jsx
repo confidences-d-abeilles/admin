@@ -1,24 +1,23 @@
 import React from 'react';
 import {
-  Show, SimpleShowLayout, TextField, NumberField, DateField,
+  Show, SimpleShowLayout, TextField, NumberField,
 } from 'react-admin';
 
+const Title = ({ record }) => <span>{`${record.firstname} ${record.name}`}</span>;
+
 export default (props) => (
-  <Show {...props}>
+  <Show title={<Title />} {...props}>
     <SimpleShowLayout>
-      <TextField source="line2" />
-      <TextField source="phone" />
-      <TextField source="country" />
-      <NumberField source="zipcode" />
       <TextField source="gender" />
-      <TextField source="name" />
-      <TextField source="company" />
-      <DateField source="updated_at" />
-      <TextField source="city" />
-      <TextField source="line1" />
-      <DateField source="created_at" />
       <TextField source="firstname" />
-      <TextField source="id" />
+      <TextField source="name" />
+      <TextField source="line1" />
+      <TextField source="line2" />
+      <NumberField source="zipcode" />
+      <TextField source="city" />
+      <TextField source="country" />
+      <TextField source="phone" />
+      <TextField source="company" />
     </SimpleShowLayout>
   </Show>
 );

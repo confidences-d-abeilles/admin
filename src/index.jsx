@@ -11,7 +11,7 @@ import 'firebaseui/dist/firebaseui.css';
 import App from './App';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBeEcNtOBsznDWf6dlAvnk2qOHE-G8s-TQ',
+  apiKey: process.env.REACT_APP_FIREBASE_SECRET,
   authDomain: 'bee-api-7e7b5.firebaseapp.com',
   databaseURL: 'https://bee-api-7e7b5.firebaseio.com',
   projectId: 'bee-api-7e7b5',

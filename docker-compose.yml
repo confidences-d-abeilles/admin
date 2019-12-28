@@ -6,6 +6,7 @@ services:
       args:
         - NODE_ENV=staging
         - REACT_APP_API_SECRET=${REACT_APP_API_SECRET}
+        - REACT_APP_FIREBASE_SECRET=${REACT_APP_FIREBASE_SECRET}
     image: bee-api:staging
     restart: always
     labels:
