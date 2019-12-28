@@ -8,7 +8,6 @@ export default (props) => (
     <Datagrid rowClick="show">
       <ReferenceField source="beehive_id" reference="beehives"><TextField source="name" /></ReferenceField>
       <TextField source="title" />
-      <TextField source="content" />
     </Datagrid>
   </List>
 );
