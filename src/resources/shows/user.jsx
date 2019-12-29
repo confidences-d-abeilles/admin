@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  Show, SimpleShowLayout, EmailField, TextField, ReferenceField, ReferenceManyField, Datagrid, DateField, ShowButton,
+  Show, SimpleShowLayout, EmailField, TextField, ReferenceField, ReferenceManyField,
+  Datagrid, DateField, ShowButton, NumberField,
 } from 'react-admin';
 
 const Title = ({ record }) => <span>{`${record.firstname} ${record.name}`}</span>;
@@ -23,6 +24,13 @@ export default (props) => (
           <ReferenceField reference="products" source="product_id">
             <TextField source="name" />
           </ReferenceField>
+          <ShowButton />
+        </Datagrid>
+      </ReferenceManyField>
+      <ReferenceManyField reference="orders" target="user_id" label="Commandes">
+        <Datagrid>
+          <TextField source="id" />
+          <NumberField source="price" />
           <ShowButton />
         </Datagrid>
       </ReferenceManyField>
