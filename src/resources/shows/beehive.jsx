@@ -18,6 +18,7 @@ export default (props) => (
           <Datagrid>
             <TextField source="title" />
             <EditButton />
+            <ShowButton />
           </Datagrid>
         </ReferenceManyField>
       </Tab>
