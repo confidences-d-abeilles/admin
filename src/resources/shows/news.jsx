@@ -1,6 +1,7 @@
 import React from 'react';
 import {
-  Show, SimpleShowLayout, TextField, ReferenceField, ImageField, EditButton, TopToolbar, RichTextField,
+  Show, SimpleShowLayout, TextField, ReferenceField, ImageField, EditButton, TopToolbar,
+  RichTextField, DateField,
 } from 'react-admin';
 
 const Title = ({ record }) => <span>{record.title}</span>;
@@ -16,6 +17,7 @@ export default (props) => (
     <SimpleShowLayout>
       <ReferenceField source="beehive_id" reference="beehives" label="Ruche" link="show"><TextField source="name" /></ReferenceField>
       <TextField source="title" label="Titre" />
+      <DateField source="date" label="Date" />
       <RichTextField source="content" label="Contenu" />
       <ReferenceField source="image_id" reference="files"><ImageField source="filename" title="Picture" /></ReferenceField>
     </SimpleShowLayout>

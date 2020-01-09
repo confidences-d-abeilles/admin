@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Show, TabbedShowLayout, NumberField, TextField,
+  Show, TabbedShowLayout, NumberField, TextField, ShowButton,
   ReferenceManyField, ReferenceField, Datagrid, EditButton, Tab,
 } from 'react-admin';
 
@@ -14,12 +14,29 @@ export default (props) => (
         <TextField source="description" />
         <NumberField source="rating" />
         <ReferenceField source="image_id" reference="images"><TextField source="id" /></ReferenceField>
-      </Tab>
-      <Tab label="News">
         <ReferenceManyField reference="news" target="beehive_id" label="News">
           <Datagrid>
             <TextField source="title" />
             <EditButton />
+          </Datagrid>
+        </ReferenceManyField>
+      </Tab>
+      <Tab label="Parrains">
+        <ReferenceManyField reference="beehives_subscriptions" target="beehive_id" label="Parrainages" link="show">
+          <Datagrid>
+            <ReferenceField reference="subscriptions" source="subscription_id" label="ID" link="show">
+              <TextField source="id" />
+            </ReferenceField>
+            <ReferenceField reference="subscriptions" source="subscription_id" label="Parrain">
+              <ReferenceField reference="users" source="user_id">
+                <TextField source="email" />
+              </ReferenceField>
+            </ReferenceField>
+            <ReferenceField reference="subscriptions" source="subscription_id" label="Produit">
+              <ReferenceField reference="products" source="product_id">
+                <TextField source="name" />
+              </ReferenceField>
+            </ReferenceField>
           </Datagrid>
         </ReferenceManyField>
       </Tab>
