@@ -8,6 +8,8 @@ steps:
     environment:
       REACT_APP_API_SECRET:
         from_secret: REACT_APP_API_SECRET
+      REACT_APP_FIREBASE_SECRET:
+        from_secret: REACT_APP_FIREBASE_SECRET
     volumes:
       - name: docker
         path: /var/run/docker.sock
@@ -20,6 +22,8 @@ steps:
     environment:
       REACT_APP_API_SECRET:
         from_secret: REACT_APP_API_SECRET
+      REACT_APP_FIREBASE_SECRET:
+        from_secret: REACT_APP_FIREBASE_SECRET
     volumes:
       - name: docker
         path: /var/run/docker.sock
