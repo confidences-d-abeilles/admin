@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import * as serviceWorker from './serviceWorker';
 import * as firebase from 'firebase/app';
 import 'firebase/analytics';
 import 'firebase/auth';
-// import { auth } from 'firebaseui';
 
 import 'firebaseui/dist/firebaseui.css';
 
@@ -24,23 +22,13 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-
-// const ui = new auth.AuthUI(firebase.auth());
-
-
-// ui.start('#firebaseui-auth-container', {
-//   signInOptions: [
-//     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-//     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-//   ],
-//   // Other config options...
-// });
+const authProvider = {
+  login: ({ username, password }) => firebase.auth().signInWithEmailAndPassword(username, password),
+  logout: () => firebase.auth().signOut(),
+  checkAuth: () => (firebase.auth().currentUser ? Promise.resolve() : Promise.reject()),
+  checkError: () => Promise.resolve(),
+  getPermissions: () => Promise.resolve(),
+};
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
+ReactDOM.render(<App authProvider={authProvider} />, document.getElementById('root'));

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import hasuraDataProvider from 'ra-data-hasura-graphql';
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client';
 import {
@@ -52,7 +53,7 @@ const client = new ApolloClient({
   }),
 });
 
-const App = () => {
+const App = ({ authProvider }) => {
   const [dataProvider, setDataProvider] = useState(null);
 
   useEffect(() => {
@@ -65,7 +66,7 @@ const App = () => {
   }
 
   return (
-    <Admin dataProvider={dataProvider}>
+    <Admin dataProvider={dataProvider} authProvider={authProvider}>
       <Resource name="users" list={userList} show={userShow} icon={PeopleIcon} />
       <Resource name="subscriptions" list={subscriptionList} show={subscriptionShow} icon={CardMembershipIcon} />
       <Resource name="files" list={ListGuesser} show={ShowGuesser} icon={PostIcon} />
@@ -79,6 +80,16 @@ const App = () => {
       <Resource name="companies" list={companiesList} show={companyShow} icon={BusinessIcon} />
     </Admin>
   );
+};
+
+App.propTypes = {
+  authProvider: PropTypes.objectOf({
+    login: PropTypes.func,
+    logout: PropTypes.func,
+    checkAuth: PropTypes.func,
+    checkError: PropTypes.func,
+    getPermissions: PropTypes.func,
+  }).isRequired,
 };
 
 export default App;
