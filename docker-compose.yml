@@ -11,7 +11,7 @@ services:
     restart: always
     labels:
       - "traefik.frontend.rule=Host:bee-api.cchampou.me"
-            - "traefik.frontend.auth.basic.users=cchampou:$$apr1$$RSwa8YGS$$IqFhDNJhBOiWQMWLq3phQ1"
+      - "traefik.frontend.auth.basic.users=cchampou:$$apr1$$RSwa8YGS$$IqFhDNJhBOiWQMWLq3phQ1"
       - "traefik.backend.port=5000"
       - "traefik.enable=true"
       - "traefik.docker.network=layko_layko_net"
